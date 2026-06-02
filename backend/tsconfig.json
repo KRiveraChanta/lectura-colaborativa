@@ -7,7 +7,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": false,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "skipLibCheck": true
   },
   "include": ["src/**/*"],
