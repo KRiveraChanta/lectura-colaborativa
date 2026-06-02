@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
 import { register, login, updateProfile, searchUsers, getUserProfile, resetPassword, forgotPassword, getMyAnnotations } from '../controllers/authController';
 import { authenticateJWT } from '../middleware/auth';
 
@@ -9,11 +10,13 @@ const router = Router();
 // Configuración de multer para guardar en uploads/avatars/ o uploads/covers/
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        if (file.fieldname === 'cover') {
-            cb(null, path.join(__dirname, '../../uploads/covers'));
-        } else {
-            cb(null, path.join(__dirname, '../../uploads/avatars'));
+        const dir = file.fieldname === 'cover' 
+            ? path.join(__dirname, '../../uploads/covers')
+            : path.join(__dirname, '../../uploads/avatars');
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
         }
+        cb(null, dir);
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
