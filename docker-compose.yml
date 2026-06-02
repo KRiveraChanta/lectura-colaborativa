@@ -9,7 +9,7 @@ services:
       - "5000:5000"
     environment:
       - DB_HOST=192.168.18.2
-      - DB_PORT=3636
+      - DB_PORT=3306
       - DB_USER=feryna
       - DB_PASS=miPrincipe123$
       - DB_NAME=feryna_collab_reader
