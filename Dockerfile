@@ -58,10 +58,10 @@ EXPOSE 5000
 # Variables de entorno por defecto
 ENV PORT=5000
 ENV DB_HOST=localhost
-ENV DB_PORT=3636
-ENV DB_USER=root
-ENV DB_PASS=1234
-ENV DB_NAME=collab_reader
+ENV DB_PORT=3306
+ENV DB_USER=feryna
+ENV DB_PASS=miPrincipe123$
+ENV DB_NAME=feryna_collab_reader
 
 # Comando de inicio
 CMD ["node", "dist/index.js"]
