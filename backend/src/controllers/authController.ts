@@ -165,7 +165,7 @@ export const getUserProfile = async (req: Request, res: Response): Promise<void>
         const authReq = req as AuthRequest;
         const currentUserId = authReq.user!.id;
 
-        const user = await User.findByPk(id, {
+        const user = await User.findByPk(id as string, {
             attributes: ['id', 'username', 'email', 'avatarUrl', 'coverUrl', 'role', 'createdAt', 'completedBooksVisibility', 'bio']
         });
 
@@ -180,7 +180,7 @@ export const getUserProfile = async (req: Request, res: Response): Promise<void>
         });
 
         let friendshipStatus = 'none';
-        let friendshipId = null;
+        let friendshipId: string | null = null;
         if (id !== currentUserId) {
             const friendship = await Friendship.findOne({
                 where: {

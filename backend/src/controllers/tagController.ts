@@ -44,7 +44,7 @@ export const updateTag = async (req: Request, res: Response): Promise<void> => {
         const { id } = req.params;
         const { name } = req.body;
 
-        const tag = await Tag.findByPk(id);
+        const tag = await Tag.findByPk(id as string);
         if (!tag) {
             res.status(404).json({ message: 'Etiqueta no encontrada' });
             return;
@@ -69,7 +69,7 @@ export const deleteTag = async (req: Request, res: Response): Promise<void> => {
 
         const { id } = req.params;
         
-        const tag = await Tag.findByPk(id);
+        const tag = await Tag.findByPk(id as string);
         if (!tag) {
             res.status(404).json({ message: 'Etiqueta no encontrada' });
             return;

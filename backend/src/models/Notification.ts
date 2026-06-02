@@ -6,7 +6,7 @@ export interface NotificationAttributes {
     id?: string;
     userId: string;
     senderId?: string;
-    type: 'friend_request' | 'book_access';
+    type: 'friend_request' | 'book_access' | 'comment_reply' | 'comment_like';
     message: string;
     read?: boolean;
     relatedId?: string;
@@ -18,7 +18,7 @@ export class Notification extends Model<NotificationAttributes> implements Notif
     public id!: string;
     public userId!: string;
     public senderId?: string;
-    public type!: 'friend_request' | 'book_access';
+    public type!: 'friend_request' | 'book_access' | 'comment_reply' | 'comment_like';
     public message!: string;
     public read!: boolean;
     public relatedId?: string;

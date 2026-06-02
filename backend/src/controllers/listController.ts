@@ -121,7 +121,7 @@ export const addBookToList = async (req: Request, res: Response): Promise<void> 
             return;
         }
 
-        const book = await Book.findByPk(bookId);
+        const book = await Book.findByPk(bookId as string);
         if (!book) {
             res.status(404).json({ message: 'Libro no encontrado' });
             return;

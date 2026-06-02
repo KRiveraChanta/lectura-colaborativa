@@ -36,6 +36,11 @@ export class Book extends Model<BookAttributes> implements BookAttributes {
     public description?: string | null;
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
+
+    // Eager-loaded associations (populated by Sequelize include)
+    public creator?: any;
+    public originalUploader?: any;
+    public tags?: any[];
 }
 
 Book.init({

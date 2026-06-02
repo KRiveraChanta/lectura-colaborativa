@@ -31,14 +31,14 @@ export const updateUser = async (req: AuthRequest, res: Response): Promise<void>
         const { id } = req.params;
         const { role } = req.body;
 
-        const user = await User.findByPk(id);
+        const user = await User.findByPk(id as string);
         if (!user) {
             res.status(404).json({ message: 'Usuario no encontrado' });
             return;
         }
 
         // Prevenir que el admin se quite su propio rol accidentalmente si es el único
-        if (user.id === req.user.id && role !== 'admin') {
+        if (user.id === req.user!.id && role !== 'admin') {
             res.status(400).json({ message: 'No puedes quitarte tu propio rol de administrador' });
             return;
         }
@@ -62,13 +62,13 @@ export const deleteUser = async (req: AuthRequest, res: Response): Promise<void>
 
         const { id } = req.params;
 
-        const user = await User.findByPk(id);
+        const user = await User.findByPk(id as string);
         if (!user) {
             res.status(404).json({ message: 'Usuario no encontrado' });
             return;
         }
 
-        if (user.id === req.user.id) {
+        if (user.id === req.user!.id) {
             res.status(400).json({ message: 'No puedes eliminarte a ti mismo' });
             return;
         }

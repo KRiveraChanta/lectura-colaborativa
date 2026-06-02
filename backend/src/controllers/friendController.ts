@@ -32,7 +32,7 @@ export const sendFriendRequest = async (req: Request, res: Response): Promise<vo
             return;
         }
 
-        const friendship = await Friendship.create({ requesterId, recipientId });
+        const friendship = await Friendship.create({ requesterId, recipientId, status: 'pending' });
 
         const notification = await Notification.create({
             userId: recipientId,
