@@ -11,7 +11,7 @@ services:
       - DB_HOST=192.168.18.2
       - DB_PORT=3306
       - DB_USER=feryna
-      - DB_PASS=miPrincipe123$
+      - DB_PASS=miPrincipe123$$
       - DB_NAME=feryna_collab_reader
       - PORT=5000
     volumes:
