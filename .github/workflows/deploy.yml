@@ -1,0 +1,17 @@
+name: Deploy App
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Ejecutar script de despliegue
+        run: |
+          cd /DATA/AppData/lectura-colaborativa
+          git pull origin master
+          chmod +x deploy.sh
+          ./deploy.sh
