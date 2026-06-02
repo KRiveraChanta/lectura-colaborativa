@@ -12,6 +12,7 @@ jobs:
       - name: Ejecutar script de despliegue
         run: |
           cd /DATA/AppData/lectura-colaborativa
-          git pull origin master
+          git fetch origin master
+          git reset --hard origin/master
           chmod +x deploy.sh
           ./deploy.sh

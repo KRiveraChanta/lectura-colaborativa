@@ -3,8 +3,9 @@
 # Entrar al directorio del proyecto
 cd /DATA/AppData/lectura-colaborativa || exit
 
-# Obtener los últimos cambios de master
-git pull origin master
+# Obtener los últimos cambios de master forzando sobreescritura
+git fetch origin master
+git reset --hard origin/master
 
 # Reconstruir y levantar los contenedores de Docker
 echo "================================================="
