@@ -1,0 +1,37 @@
+# Dependencias
+node_modules/
+
+# Compilados
+frontend/dist/
+backend/dist/
+
+# Archivos de entorno (contraseñas)
+.env
+
+# Uploads de usuarios
+uploads/
+backend/uploads/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Archivos temporales de prueba
+test.pdf
+test.txt
+test_*.ts
+test_*.mjs
+test_*.js
+fix_*.py
+fix_*.js
+backup.js
+real_backup.js
+alter_db.js

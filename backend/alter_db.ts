@@ -1,0 +1,19 @@
+import { sequelize } from './src/config/database';
+
+async function alterDB() {
+    try {
+        await sequelize.authenticate();
+        console.log('Connected to DB');
+        await sequelize.query("ALTER TABLE highlights ADD COLUMN type VARCHAR(50) DEFAULT 'bookmark', ADD COLUMN style VARCHAR(50);");
+        console.log('Altered table successfully');
+        process.exit(0);
+    } catch (error: any) {
+        if (error.original && error.original.code === 'ER_DUP_FIELDNAME') {
+            console.log('Columns already exist');
+            process.exit(0);
+        }
+        console.error('Error altering table', error);
+        process.exit(1);
+    }
+}
+alterDB();
